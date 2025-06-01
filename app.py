@@ -219,7 +219,8 @@ Only include the description, no headings or explanations.
         if isinstance(original_price, (int, float)) and discount > 0:
             offer_price = round(original_price * (100 - discount) / 100)
             
-    
+        if poster is None:
+            poster = product_info['primary_image']
         
         return {
             'title': title,

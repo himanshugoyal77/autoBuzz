@@ -1,9 +1,18 @@
-'use strict';
+"use strict";
 
 require("dotenv").config();
 const app = require("./server");
 const port = process.env.BACKEND_PORT || 8080;
+const sqlite3 = require("sqlite3").verbose();
+const sqliteInstance = new sqlite3.Database("session_storage.db");
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+  // CREATE TABLE IF NOT EXISTS token_store (
+  //   company_id TEXT,
+  //   application_id TEXT,
+  //   token TEXT,
+  //   PRIMARY KEY (company_id, application_id)
+  // )
+
+  console.log(`Example app listening at http://localhost:${port}`);
 });

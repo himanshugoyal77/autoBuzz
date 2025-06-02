@@ -7,6 +7,7 @@ import DEFAULT_NO_IMAGE from "../public/assets/default_icon_listing.png";
 import loaderGif from "../public/assets/loader.gif";
 import axios from "axios";
 import urlJoin from "url-join";
+import ReactFlowUI from "./Test";
 
 const EXAMPLE_MAIN_URL = window.location.origin;
 
@@ -88,9 +89,7 @@ export const Home = () => {
           <img src={loaderGif} alt="loader GIF" />
         </div>
       ) : (
-        <div className="products-container">
-          Lemon AutoBuzz
-        </div>
+        <ReactFlowUI />
       )}
     </>
   );

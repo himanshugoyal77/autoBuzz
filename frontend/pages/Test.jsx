@@ -352,7 +352,7 @@ const initialNodes = [
     type: "customNode",
     position: { x: 350, y: 50 },
     data: {
-      label: "FyndCommerceStorefront1",
+      label: "Fetch prodct data from Fynd Platform",
       icon: "F",
       color: NODE_COLORS.FYND,
       description: (
@@ -380,7 +380,7 @@ const initialNodes = [
     type: "customNode",
     position: { x: 600, y: 150 },
     data: {
-      label: "function1",
+      label: "Payload extraction",
       icon: "f",
       color: NODE_COLORS.DEFAULT,
       description: (
@@ -408,7 +408,7 @@ const initialNodes = [
     type: "customNode",
     position: { x: 900, y: 100 },
     data: {
-      label: "logConsole1",
+      label: "Advertisement Generator",
       icon: "□",
       color: NODE_COLORS.GRAY,
       description: (
@@ -436,7 +436,7 @@ const initialNodes = [
     type: "customNode",
     position: { x: 1200, y: 50 },
     data: {
-      label: "facebook1",
+      label: "facebook uploader",
       icon: "f",
       color: NODE_COLORS.FACEBOOK,
       description: (

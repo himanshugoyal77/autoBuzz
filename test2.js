@@ -3,7 +3,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
 const sqlite3 = require("sqlite3").verbose();
-const fs = require("fs");
 const serveStatic = require("serve-static");
 const { readFileSync } = require("fs");
 const { setupFdk } = require("@gofynd/fdk-extension-javascript/express");
@@ -170,8 +169,11 @@ const handleProductCreate = async (
   application_id
 ) => {
   try {
+    console.log("company_id", company_id);
     // 🔍 Fetch the token from DB
     const token = await getTokenForCompany(company_id);
+
+    console.log("token in handleProductCreate", token);
 
     if (!token || token.length === 0) {
       console.error("No token found for", company_id, application_id);
@@ -194,19 +196,7 @@ const handleProductCreate = async (
     const product = await platformClient.catalog.getProduct({
       itemId: productId,
     });
-
     console.log("product", product);
-
-    try {
-      const saveProductToDB = await axios.post(
-        "https://autobuzz-backend.onrender.com/api/v1/saveProduct",
-        product
-      );
-
-      console.log("saveProductToDB", saveProductToDB);
-    } catch (error) {
-      console.error("Error saving product to DB:", error);
-    }
   } catch (error) {
     console.error("Error handling webhook:", error);
   }
@@ -234,16 +224,12 @@ const fdkExtension = setupFdk({
   storage: new SQLiteStorage(
     sqliteInstance,
     "exapmple-fynd-platform-extension"
-  ), // add your prefix
+  ),
   access_mode: "offline",
   webhook_config: {
     api_path: "/api/webhook-events",
     notification_email: "goyalhimanshu464@gmail.com",
     event_map: {
-      "company/product/create": {
-        version: "1",
-        handler: () => console.log("product created"),
-      },
       "company/product/delete": {
         handler: () => console.log("product deleted"),
         version: "1",
@@ -252,20 +238,6 @@ const fdkExtension = setupFdk({
       "company/product/create": {
         handler: handleProductCreate,
         version: "3",
-      },
-
-      // update
-      "company/product/update": {
-        version: "1",
-        handler: () => console.log("product created"),
-      },
-      "company/product/update": {
-        version: "2",
-        handler: () => console.log("product created"),
-      },
-      "company/product/update": {
-        version: "3",
-        handler: () => console.log("product created"),
       },
     },
   },
@@ -431,6 +403,18 @@ app.get("*", (req, res) => {
 });
 
 async function test() {
+  const platformClient = await fdkExtension.getPlatformClient(10320);
+
+  // const res = await platformClient.catalog.getProducts({
+  //   page_size: 10,
+  //   page_number: 1,
+  // });
+
+  // const res = await platformClient.catalog.getProduct({
+  //   itemId: 9739009,
+  // });
+  // console.log("platformClient", platformClient);
+  // console.log("res", res);
   // const token = await new Promise((resolve, reject) => {
   //   sqliteInstance.all(
   //     `SELECT * FROM token_store WHERE company_id = 10320`,

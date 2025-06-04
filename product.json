@@ -1,0 +1,163 @@
+{
+  "data": {
+    "item_code": "LO90ED",
+    "media": [
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/eeken/E1113PP01A002_OGN/0/Ym43PKxyKe-e1113pp01a002_ogn_1.jpg",
+        "type": "image"
+      },
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/eeken/E1113PP01A002_OGN/1/dz4O9s1t7W-e1113pp01a002_ogn_2.jpg",
+        "type": "image"
+      },
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/eeken/E1113PP01A002_OGN/2/b7ID0sSXaX-e1113pp01a002_ogn_3.jpg",
+        "type": "image"
+      },
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/eeken/E1113PP01A002_OGN/3/5Z6SwL7xz3-e1113pp01a002_ogn_4.jpg",
+        "type": "image"
+      }
+    ],
+    "net_quantity": {
+      "unit": "kg",
+      "value": 1
+    },
+    "multi_size": false,
+    "highlights": [],
+    "item_type": "standard",
+    "product_publish": {
+      "is_set": true,
+      "product_online_date": "2025-06-03T12:39:51.232000Z"
+    },
+    "return_config": {
+      "time": 30,
+      "returnable": true,
+      "unit": "days"
+    },
+    "is_set": false,
+    "currency": "INR",
+    "category_slug": "others-level-3",
+    "size_guide": "",
+    "departments": [
+      8
+    ],
+    "name": "Mens Casual",
+    "brand_uid": 5989,
+    "no_of_boxes": 1,
+    "is_image_less_product": false,
+    "custom_order": {
+      "manufacturing_time": 0,
+      "manufacturing_time_unit": "days",
+      "is_custom_order": false
+    },
+    "variant_media": {},
+    "product_group_tag": [],
+    "short_description": "",
+    "_custom_json": {},
+    "tags": [],
+    "slug": "hu83e-14154217",
+    "teaser_tag": {},
+    "is_dependent": false,
+    "description": "",
+    "country_of_origin": "India",
+    "template_tag": "supplementary",
+    "category_uid": 436,
+    "uid": 14154217,
+    "created_on": "2025-06-03T12:41:30.208000",
+    "modified_on": "2025-06-03T12:41:30.208000",
+    "created_by": {
+      "user_id": "68f9ee62463f37498aa62bd7",
+      "super_user": false,
+      "username": "2021.himanshu.goyal@ves.ac.in"
+    },
+    "stage": "pending",
+    "id": "683eed7afd33cdb68c139c08",
+    "variants": {},
+    "modified_by": {
+      "user_id": "68f9ee62463f37498aa62bd7",
+      "super_user": false,
+      "username": "2021.himanshu.goyal@ves.ac.in"
+    },
+    "all_company_ids": [
+      10320
+    ],
+    "all_identifiers": [
+      "FHY7R"
+    ],
+    "brand": {
+      "name": "Generic",
+      "logo": {
+        "aspect_ratio": "1:1",
+        "aspect_ratio_f": 1,
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/brands/pictures/square-logo/50x0/AogxD7pYK-Logo.png",
+        "secure_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/brands/pictures/square-logo/50x0/AogxD7pYK-Logo.png"
+      },
+      "uid": 5989
+    },
+    "sizes": [
+      {
+        "item_weight_unit_of_measure": "gram",
+        "company_id": 10320,
+        "price": 200,
+        "item_code": "LO90ED",
+        "item_weight": 2,
+        "modified_on": "2025-06-03T12:41:30.245000",
+        "created_on": "2025-06-03T12:41:30.245000",
+        "price_transfer": 0,
+        "is_set": false,
+        "currency": "INR",
+        "seller_identifier": "FHY7R",
+        "size": "OS",
+        "brand_uid": 5989,
+        "price_effective": 90,
+        "item_width": 2,
+        "identifiers": [
+          {
+            "primary": true,
+            "gtin_value": "FHY7R",
+            "gtin_type": "sku_code"
+          }
+        ],
+        "item_id": 14154217,
+        "item_length": 2,
+        "_custom_json": {},
+        "item_dimensions_unit_of_measure": "cm",
+        "track_inventory": true,
+        "item_height": 2,
+        "id": "683eed7afd33cdb68c139c0b"
+      }
+    ],
+    "is_expirable": false,
+    "is_active": true,
+    "trader": [
+      {
+        "type": "Manufacturer",
+        "name": "Nike",
+        "address": [
+          "Andheri"
+        ]
+      }
+    ],
+    "tax_identifier": {
+      "hsn_code_id": "68273e7c080d6702a71f7d70",
+      "reporting_hsn": "52083220H1",
+      "hsn_code": "52083220"
+    },
+    "category": {
+      "l3": {
+        "name": "Others level 3",
+        "uid": 436
+      },
+      "l1": {
+        "uid": 406,
+        "name": "Others"
+      },
+      "l2": {
+        "uid": 412,
+        "name": "Others level 2"
+      }
+    },
+    "attributes": {}
+  }
+}

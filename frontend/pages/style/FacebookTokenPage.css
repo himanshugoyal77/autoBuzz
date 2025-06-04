@@ -1,0 +1,240 @@
+/* Base Styles */
+:root {
+  --primary-color: #4267b2;
+  --secondary-color: #f5f5f5;
+  --accent-color: #1877f2;
+  --text-color: #333;
+  --light-text: #777;
+  --border-color: #ddd;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  height: 100vh;
+  overflow: hidden; /* Prevent body scrolling */
+}
+
+/* Token Container */
+.token-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.token-box {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Flow UI Wrapper */
+.flow-ui-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevent wrapper scrolling */
+}
+
+/* Fixed Sidebar */
+.sidebar {
+  width: 250px;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow-y: auto; /* Allow sidebar to scroll internally if needed */
+  transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed {
+  transform: translateX(
+    -190px
+  ); /* Only collapse partially to keep button visible */
+  width: 250px; /* Maintain same width for smooth animation */
+}
+
+.collapse-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: large;
+  z-index: 10;
+}
+
+.edit-button {
+  background-color: var(--primary-color);
+  color: white;
+  width: 100%;
+  margin-top: 60px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #365899;
+}
+
+/* Scrollable Content Area */
+.flow-ui-content {
+  flex: 1;
+  margin-left: 250px; /* Match sidebar width */
+  height: 100vh;
+  overflow-y: auto; /* Enable scrolling for content */
+  padding: 20px;
+  background-color: var(--secondary-color);
+  box-sizing: border-box;
+}
+
+.sidebar.collapsed + .flow-ui-content {
+  margin-left: 60px; /* Match collapsed sidebar width */
+}
+
+/* Rest of your existing styles... */
+.token-box h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.instructions {
+  color: var(--light-text);
+  margin-bottom: 25px;
+}
+
+.instruction-list {
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.instruction-list li {
+  margin-bottom: 10px;
+}
+
+.instruction-list a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.instruction-list a:hover {
+  text-decoration: underline;
+}
+
+.instruction-list code {
+  background-color: var(--secondary-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.token-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.token-form label {
+  font-weight: 500;
+  margin-bottom: -15px;
+}
+
+.token-form input {
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.token-form input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.submit-button,
+.secondary-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #365899;
+}
+
+.secondary-button {
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+}
+
+.secondary-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+}
+
+.loading-message {
+  color: var(--primary-color);
+}
+
+.error-message {
+  color: var(--error-color);
+}

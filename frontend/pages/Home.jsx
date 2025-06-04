@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./style/home.css";
-import greenDot from "../public/assets/green-dot.svg";
-import grayDot from "../public/assets/grey-dot.svg";
 import DEFAULT_NO_IMAGE from "../public/assets/default_icon_listing.png";
 import loaderGif from "../public/assets/loader.gif";
 import axios from "axios";
 import urlJoin from "url-join";
 import ReactFlowUI from "./Test";
+import AutoBuzzInstaller from "./Permissions";
 
 const EXAMPLE_MAIN_URL = window.location.origin;
 
@@ -89,7 +88,8 @@ export const Home = () => {
           <img src={loaderGif} alt="loader GIF" />
         </div>
       ) : (
-        <ReactFlowUI />
+        <AutoBuzzInstaller />
+        // <ReactFlowUI />
       )}
     </>
   );

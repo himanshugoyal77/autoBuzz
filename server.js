@@ -15,8 +15,6 @@ const productRouter = express.Router();
 const axios = require("axios");
 
 const FYND_PLATFORM_BASE_URL = "https://api.fynd.com";
-const FB_TOKEN =
-  "EACOySOKuhEoBO9IhUx25IVxZAnu9dRsZBKLaQZAeZCvPWVXExWf4xuIIMdiZB2d0UQqrZANpJXUMk2b3yLqx6Vh2bXR74DzzWoumdyUOERixC5QZBFNVJROHjN2wjbabzem1EuxZAy464F6r0pkRgNmaoRPDRWmLCZChYSHHXJaewwIDqL8hSN6DQ1QTrZCDsHewZAJEzJt3KgZC2r38F97oeb4ZD";
 
 const tokenMapping = {
   FB_TOKEN: "facebook1",
@@ -212,6 +210,41 @@ const handleProductCreate = async (
   }
 };
 
+const deleteFromDB = async (
+  event_name,
+  request_body,
+  company_id,
+  application_id
+) => {
+  console.log("deleteFromDB called with", {
+    event_name,
+    request_body,
+    company_id,
+    application_id,
+  });
+
+  // save json to a file
+  const payload = request_body.payload;
+
+  const { item_code } = payload.product;
+
+  console.log("item_code", item_code);
+  try {
+    const res = await axios.post(
+      "https://autobuzz-backend.onrender.com/api/v1/deleteProduct",
+      {
+        productId: item_code,
+      }
+    );
+
+    console.log("Product deleted from DB:", res.data);
+    return res.data;
+  } catch (error) {
+    console.error("Error deleting product from DB:", error);
+    return;
+  }
+};
+
 const fdkExtension = setupFdk({
   api_key: process.env.EXTENSION_API_KEY,
   api_secret: process.env.EXTENSION_API_SECRET,
@@ -245,7 +278,7 @@ const fdkExtension = setupFdk({
         handler: () => console.log("product created"),
       },
       "company/product/delete": {
-        handler: () => console.log("product deleted"),
+        handler: deleteFromDB,
         version: "1",
       },
 
@@ -366,6 +399,57 @@ app.post("/api/store-token", async (req, res) => {
   }
 });
 
+app.post("/api/accepted-permissions", async (req, res) => {
+  const { company_id } = req.body;
+
+  // create a new table if it doesn't exist store company_id and boolean true or false
+  sqliteInstance.run(
+    `CREATE TABLE IF NOT EXISTS accepted_permissions (company_id INTEGER PRIMARY KEY, accepted BOOLEAN)`,
+    (err) => {
+      if (err) {
+        console.error("Error creating table:", err);
+        return res.status(500).json({ success: false });
+      }
+
+      // Insert or update the accepted permissions
+      sqliteInstance.run(
+        `INSERT INTO accepted_permissions (company_id, accepted) VALUES (?, ?) ON CONFLICT(company_id) DO UPDATE SET accepted = ?`,
+        [company_id, true, true],
+        (err) => {
+          if (err) {
+            console.error("Error inserting/updating permissions:", err);
+            return res.status(500).json({ success: false });
+          }
+          console.log("Permissions accepted for company_id:", company_id);
+          return res.json({ success: true });
+        }
+      );
+    }
+  );
+});
+
+app.get("/api/check-permissions/:companyId", async (req, res) => {
+  const { companyId } = req.params;
+
+  // Query the accepted_permissions table to check if permissions are accepted
+  sqliteInstance.get(
+    `SELECT accepted FROM accepted_permissions WHERE company_id = ?`,
+    [companyId],
+    (err, row) => {
+      if (err) {
+        console.error("Error checking permissions:", err);
+        return res.status(500).json({ success: false });
+      }
+
+      if (row) {
+        return res.json({ success: true, hasPermissions: row.accepted });
+      } else {
+        return res.json({ success: false, accepted: false });
+      }
+    }
+  );
+});
+
 // Route to handle webhook events and process it.
 app.post("/api/webhook-events", async function (req, res) {
   try {
@@ -428,45 +512,6 @@ app.get("*", (req, res) => {
     .status(200)
     .set("Content-Type", "text/html")
     .send(readFileSync(path.join(STATIC_PATH, "index.html")));
-});
-
-async function test() {
-  // const token = await new Promise((resolve, reject) => {
-  //   sqliteInstance.all(
-  //     `SELECT * FROM token_store WHERE company_id = 10320`,
-  //     (err, row) => {
-  //       if (err) reject(err);
-  //       else resolve(row?.token);
-  //     }
-  //   );
-  // });
-  //  get all the rows with company_id = 10320
-  // sqliteInstance.all(
-  //   `SELECT token FROM token_store WHERE company_id = 10320`,
-  //   (err, rows) => {
-  //     if (err) {
-  //       console.error("Error fetching rows:", err);
-  //     } else {
-  //       console.log("Rows in token_store:", rows);
-  //     }
-  //   }
-  // );
-  // delete rows with key = null
-  // sqliteInstance.run(
-  //   `DELETE FROM token_store WHERE company_id = 10320 AND key = 5`,
-  //   (err) => {
-  //     if (err) {
-  //       console.error("Error deleting rows:", err);
-  //     } else {
-  //       console.log("Rows deleted successfully");
-  //     }
-  //   }
-  // );
-  // Sconsole.log("token in server.js", token);
-}
-
-test().catch((err) => {
-  console.error("Error in test function:", err);
 });
 
 console.log("process.env.EXTENSION_API_KEY", process.env.EXTENSION_API_KEY);

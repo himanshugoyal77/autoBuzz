@@ -25,7 +25,7 @@ const Step2GeneratedContent = ({
     setLoading(true);
     try {
       const res = await axios.post(
-        `http://localhost:5000/products/${companyId}`,
+        `https://autobuzz-backend.onrender.com/products/${companyId}`,
         { product: product }
       );
       setGeneratedContent(res.data);
@@ -49,7 +49,9 @@ const Step2GeneratedContent = ({
         </div>
         <div className="step-info">
           <h1 className="step-title">Generate Content</h1>
-          <p className="step-subtitle">AI-powered content creation for your product</p>
+          <p className="step-subtitle">
+            AI-powered content creation for your product
+          </p>
         </div>
       </div>
 
@@ -85,9 +87,7 @@ const Step2GeneratedContent = ({
           disabled={loading || generatedContent}
         >
           {loading && <div className="loading-spinner"></div>}
-          <span>
-            {loading ? "Generating Content..." : "Generate Content"}
-          </span>
+          <span>{loading ? "Generating Content..." : "Generate Content"}</span>
         </button>
       </div>
 
@@ -114,7 +114,7 @@ const Step2GeneratedContent = ({
                   placeholder="Enter your ad title"
                 />
               </div>
-              
+
               <div className="content-field">
                 <label className="field-label">Description</label>
                 <textarea
@@ -125,7 +125,7 @@ const Step2GeneratedContent = ({
                   placeholder="Enter your product description"
                 />
               </div>
-              
+
               <div className="content-field">
                 <label className="field-label">Pricing Information</label>
                 <div className="pricing-info">
@@ -135,7 +135,9 @@ const Step2GeneratedContent = ({
                   </div>
                   <div className="pricing-item">
                     <span className="pricing-label">Effective Price:</span>
-                    <span className="pricing-value">₹{price.effectivePrice}</span>
+                    <span className="pricing-value">
+                      ₹{price.effectivePrice}
+                    </span>
                   </div>
                   <div className="pricing-item">
                     <span className="pricing-label">Currency:</span>

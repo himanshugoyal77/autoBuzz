@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactFlowUI from "./Test";
 import MultiStepForm from "./MultiStepForm";
+import "./style/ToggleComponent.css";
 
 const API_ENDPOINTS = {
   GET_TOKEN: "/api/get-token",
@@ -17,6 +18,11 @@ const FacebookTokenPage = () => {
   const [error, setError] = useState(null);
   const [showEditor, setShowEditor] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [showA, setShowA] = useState(true);
+
+  const toggleComponent = () => {
+    setShowA((prev) => !prev);
+  };
 
   // Sample product data - replace with your actual data
   const [products] = useState([
@@ -118,9 +124,15 @@ const FacebookTokenPage = () => {
     return (
       <div className="flow-ui-wrapper">
         <aside className={`sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
+          <div className="toggle-container">
+            <button className="toggle-button" onClick={toggleComponent}>
+              {showA ? "Switch to Form" : "Switch to Flow UI"}
+            </button>
+          </div>
           <button className="collapse-button" onClick={toggleSidebar}>
             {sidebarCollapsed ? "»" : "«"}
           </button>
+
           {!sidebarCollapsed && (
             <>
               <button
@@ -133,7 +145,15 @@ const FacebookTokenPage = () => {
           )}
         </aside>
         <div className="flow-ui-content">
-          <MultiStepForm />
+          {showA ? (
+            <ReactFlowUI
+              products={products}
+              sidebarCollapsed={sidebarCollapsed}
+              toggleSidebar={toggleSidebar}
+            />
+          ) : (
+            <MultiStepForm companyId={company_id} />
+          )}
         </div>
       </div>
     );

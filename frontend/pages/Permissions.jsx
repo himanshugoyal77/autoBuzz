@@ -1,24 +1,46 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import "./style/AutoBuzzInstall.css";
 import logo from "../public/assets/logo.png"; // Adjust the path as necessary
 import ReactFlowUI from "./Test"; // Assuming this is the component you want to render after permissions are accepted
 import FacebookTokenPage from "./FacebookTokenPage";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const AutoBuzzInstaller = () => {
-  const [isAcceptedPermissions, setIsAcceptedPermissions] = useState(() => {
-    const savedPermissions = localStorage.getItem(
-      "acceptedPermissionsforAutoBuzz"
-    );
-    return savedPermissions ? JSON.parse(savedPermissions) : false;
-  });
+  const [isAcceptedPermissions, setIsAcceptedPermissions] = useState(false);
+  const { company_id } = useParams();
 
-  const handleAcceptPermissions = () => {
-    setIsAcceptedPermissions(true);
-    localStorage.setItem(
-      "acceptedPermissionsforAutoBuzz",
-      JSON.stringify(true)
-    );
+  const checkPermissions = async () => {
+    try {
+      const response = await axios.get(`/api/check-permissions/${company_id}`);
+      console.log("Permissions check response:", response.data);
+      if (response.status === 200) {
+        setIsAcceptedPermissions(response.data.hasPermissions);
+      }
+    } catch (error) {
+      console.error("Error accepting permissions:", error);
+      // Handle error appropriately, e.g., show an error message to the user
+    }
   };
+
+  const handleAcceptPermissions = async () => {
+    try {
+      const response = await axios.post(`/api/accepted-permissions`, {
+        company_id: company_id,
+      });
+      console.log("Permissions accepted:", response.data);
+      if (response.status === 200) {
+        setIsAcceptedPermissions(true);
+      }
+    } catch (error) {
+      console.error("Error accepting permissions:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Check if permissions have already been accepted
+    checkPermissions();
+  }, [company_id]);
 
   return (
     <div className="">

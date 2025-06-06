@@ -67,11 +67,7 @@ const FacebookTokenPage = () => {
       throw new Error("Failed to fetch token");
     } catch (err) {
       console.error("Error fetching token:", err);
-      setError(
-        err instanceof Error
-          ? err.message
-          : "An unknown error occurred while fetching token"
-      );
+
       return "";
     } finally {
       setLoading(false);

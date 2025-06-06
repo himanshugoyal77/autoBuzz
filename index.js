@@ -11,7 +11,7 @@ app.listen(port, () => {
     `CREATE TABLE IF NOT EXISTS token_store (
       company_id TEXT,
       token TEXT,
-      key TEXT,
+      key TEXT
     )`
   );
   console.log(`Example app listening at http://localhost:${port}`);

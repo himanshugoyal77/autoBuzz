@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
-/dist
-/build
+
 
 
 # local env files
@@ -22,7 +21,7 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-/frontend/dist/*
+
 
 # ignore snapshots
 __snapshots__/

@@ -1,0 +1,163 @@
+{
+  "data": {
+    "brand_uid": 5989,
+    "item_code": "GR45G",
+    "product_group_tag": [],
+    "country_of_origin": "India",
+    "size_guide": "",
+    "product_publish": {
+      "is_set": true,
+      "product_online_date": "2025-06-03T12:48:34.398000Z"
+    },
+    "currency": "INR",
+    "media": [
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/liberty/FUNWAY-2_Yellow/0/DjHTI1SkRd-FUNWAY-2-YELLOW.jpg",
+        "type": "image"
+      },
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/liberty/FUNWAY-2_Yellow/1/2R0I-EF4ww-IMG_3375.jpg",
+        "type": "image"
+      },
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/liberty/FUNWAY-2_Yellow/2/3ssOd3bmSq-IMG_3376.jpg",
+        "type": "image"
+      },
+      {
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/liberty/FUNWAY-2_Yellow/3/XuzNczGpnh-IMG_3377.jpg",
+        "type": "image"
+      }
+    ],
+    "_custom_json": {},
+    "multi_size": false,
+    "tags": [],
+    "departments": [
+      8
+    ],
+    "short_description": "",
+    "is_set": false,
+    "return_config": {
+      "unit": "days",
+      "time": 30,
+      "returnable": true
+    },
+    "item_type": "standard",
+    "no_of_boxes": 1,
+    "name": "yellow sandal",
+    "teaser_tag": {},
+    "custom_order": {
+      "manufacturing_time": 0,
+      "manufacturing_time_unit": "days",
+      "is_custom_order": false
+    },
+    "description": "",
+    "is_image_less_product": false,
+    "net_quantity": {
+      "value": 1,
+      "unit": "kg"
+    },
+    "category_slug": "others-level-3",
+    "slug": "sdf45s-14154218",
+    "highlights": [],
+    "is_dependent": false,
+    "variant_media": {},
+    "template_tag": "supplementary",
+    "category_uid": 436,
+    "uid": 14154218,
+    "created_on": "2025-06-03T12:49:05.952000",
+    "modified_on": "2025-06-03T12:49:05.952000",
+    "created_by": {
+      "user_id": "68f9ee62463f37498aa62bd7",
+      "super_user": false,
+      "username": "2021.himanshu.goyal@ves.ac.in"
+    },
+    "stage": "pending",
+    "id": "683eef4152e8232134d843f9",
+    "variants": {},
+    "modified_by": {
+      "user_id": "68f9ee62463f37498aa62bd7",
+      "super_user": false,
+      "username": "2021.himanshu.goyal@ves.ac.in"
+    },
+    "all_company_ids": [
+      10320
+    ],
+    "all_identifiers": [
+      "JI9483"
+    ],
+    "brand": {
+      "name": "Generic",
+      "logo": {
+        "aspect_ratio": "1:1",
+        "aspect_ratio_f": 1,
+        "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/brands/pictures/square-logo/50x0/AogxD7pYK-Logo.png",
+        "secure_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/brands/pictures/square-logo/50x0/AogxD7pYK-Logo.png"
+      },
+      "uid": 5989
+    },
+    "sizes": [
+      {
+        "brand_uid": 5989,
+        "item_code": "GR45G",
+        "track_inventory": true,
+        "price_transfer": 0,
+        "currency": "INR",
+        "_custom_json": {},
+        "item_width": 34,
+        "seller_identifier": "JI9483",
+        "item_id": 14154218,
+        "price_effective": 900,
+        "is_set": false,
+        "size": "OS",
+        "price": 1100,
+        "item_weight": 3,
+        "item_dimensions_unit_of_measure": "cm",
+        "item_height": 34,
+        "company_id": 10320,
+        "item_weight_unit_of_measure": "gram",
+        "created_on": "2025-06-03T12:49:05.982000",
+        "identifiers": [
+          {
+            "primary": true,
+            "gtin_type": "sku_code",
+            "gtin_value": "JI9483"
+          }
+        ],
+        "modified_on": "2025-06-03T12:49:05.982000",
+        "item_length": 34,
+        "id": "683eef4152e8232134d843fc"
+      }
+    ],
+    "is_expirable": false,
+    "is_active": true,
+    "trader": [
+      {
+        "type": "Manufacturer",
+        "address": [
+          "Andheri"
+        ],
+        "name": "Nike"
+      }
+    ],
+    "tax_identifier": {
+      "hsn_code_id": "68273e7c080d6702a71f7d70",
+      "reporting_hsn": "52083220H1",
+      "hsn_code": "52083220"
+    },
+    "category": {
+      "l3": {
+        "name": "Others level 3",
+        "uid": 436
+      },
+      "l1": {
+        "uid": 406,
+        "name": "Others"
+      },
+      "l2": {
+        "uid": 412,
+        "name": "Others level 2"
+      }
+    },
+    "attributes": {}
+  }
+}

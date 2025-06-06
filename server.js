@@ -362,12 +362,6 @@ app.get("/api/get-token", async (req, res) => {
       );
     });
 
-    if (!token) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Token not found" });
-    }
-
     console.log("Token retrieved successfully", { company_id, key });
 
     res.json({ success: true, token });

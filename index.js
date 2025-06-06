@@ -14,5 +14,16 @@ app.listen(port, () => {
       key TEXT
     )`
   );
+
+  sqliteInstance.run(
+    `CREATE TABLE IF NOT EXISTS accepted_permissions (company_id INTEGER PRIMARY KEY, accepted BOOLEAN)`,
+    (err) => {
+      if (err) {
+        console.error("Error creating accepted_permissions table:", err);
+      } else {
+        console.log("accepted_permissions table is ready.");
+      }
+    }
+  );
   console.log(`Example app listening at http://localhost:${port}`);
 });

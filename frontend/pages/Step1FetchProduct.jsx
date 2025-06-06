@@ -8,6 +8,7 @@ const Step1FetchProduct = ({ companyId, onNext, onProductSelect }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const { company_id } = useParams();
 
   const fetchProducts = async () => {
     try {
@@ -21,6 +22,10 @@ const Step1FetchProduct = ({ companyId, onNext, onProductSelect }) => {
     } finally {
       setLoading(false);
     }
+
+    // const res = await axios.get(`/get-all-products/${companyId || company_id}`);
+    // console.log("Fetched products:", res.data);
+    // setProducts(res.data);
   };
 
   useEffect(() => {

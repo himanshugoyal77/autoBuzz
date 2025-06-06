@@ -332,6 +332,21 @@ app.get("/hello", (req, res) => {
   res.send("Hello World");
 });
 
+app.get("/get-all-products/:companyId", async (req, res) => {
+  const { companyId } = req.params;
+  const platformClient = await fdkExtension.getPlatformClient(companyId);
+  console.log("platformClient", platformClient);
+
+  // Fetch the product details using the platform client
+  const products = await platformClient.catalog.getProducts({
+    company_id: companyId,
+  });
+
+  console.log("product", products);
+
+  return res.json(products);
+});
+
 app.get("/api/get-token", async (req, res) => {
   const { key, company_id } = req.query;
   console.log("get-token called with", { key, company_id });

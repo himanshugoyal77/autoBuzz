@@ -25,6 +25,7 @@ const Step2GeneratedContent = ({
     setLoading(true);
     try {
       const res = await axios.post(
+        //`http://localhost:5000/products/${companyId}`, // Update this URL to your backend endpoint
         `https://autobuzz-backend.onrender.com/products/${companyId}`,
         { product: product }
       );

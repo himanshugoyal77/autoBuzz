@@ -24,6 +24,8 @@ const FacebookTokenPage = () => {
     setShowA((prev) => !prev);
   };
 
+  console.log("token", token);
+
   // Sample product data - replace with your actual data
   const [products] = useState([
     {
